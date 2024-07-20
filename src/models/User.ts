@@ -10,6 +10,9 @@ interface IUser extends Document {
   ssn: string;
   dateOfBirth: Date;
   address: string;
+  VerifyCode:string ;
+  VerifyCodeExpiry:Date ;
+  
 }
 
 const userSchema = new Schema<IUser>({
@@ -21,6 +24,11 @@ const userSchema = new Schema<IUser>({
   ssn: { type: String, required: true, unique: true },
   dateOfBirth: { type: Date, required: true },
   address: { type: String, required: true },
+  VerifyCode:{
+    type:String  ,
+    required:true
+  }, 
+  VerifyCodeExpiry:Date
 });
 
 const User = mongoose.models.User as mongoose.Model<IUser> ||
